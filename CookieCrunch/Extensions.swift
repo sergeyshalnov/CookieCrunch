@@ -13,16 +13,17 @@ extension Dictionary {
         var dataOK: Data
         var dictionaryOK: NSDictionary = NSDictionary()
 
+        // ? = !
         if let path = Bundle.main.path(forResource: filename, ofType: "json") {
             do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: NSData.ReadingOptions()) as Data!
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: NSData.ReadingOptions()) as Data?
                 dataOK = data!
             } catch {
                 print("Couldn't load level file: \(filename), error: \(error)")
                 return nil
             }
             do {
-                let dictionary = try JSONSerialization.jsonObject(with: dataOK, options: JSONSerialization.ReadingOptions()) as AnyObject!
+                let dictionary = try JSONSerialization.jsonObject(with: dataOK, options: JSONSerialization.ReadingOptions()) as AnyObject?
                 dictionaryOK = (dictionary as! NSDictionary as? Dictionary<String, AnyObject>)! as NSDictionary
             } catch {
                 print("Couldn't load level file: \(filename) is not valid JSON: \(error)")

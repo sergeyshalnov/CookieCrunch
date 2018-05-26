@@ -12,8 +12,12 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    // MARK: Properties
+    
     var scene: GameScene!
     var level: Level!
+    
+    // MARK: Init
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,8 @@ class GameViewController: UIViewController {
             scene.level = level
             scene.addTiles()
             
+            scene.swipeHandler = handleSwipe(_:)
+            
             view.presentScene(scene)
         }
         print("run begin game")
@@ -44,6 +50,22 @@ class GameViewController: UIViewController {
     func shuffle() {
         let newCookies = level.shuffle()
         scene.addSprites(for: newCookies)
+    }
+    
+    // FIX: Optimze
+    func handleSwipe(_ swap: Swap) {
+        view.isUserInteractionEnabled = false
+        
+        if level.isPossibleSwap(swap) {
+            level.perfomeSwap(swap)
+            scene.animate(swap) {
+                self.view.isUserInteractionEnabled = true
+            }
+        } else {
+            scene.animateInvalidSwap(swap) {
+                self.view.isUserInteractionEnabled = true
+            }
+        }
     }
 
     override var shouldAutorotate: Bool {

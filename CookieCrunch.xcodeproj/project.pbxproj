@@ -12,6 +12,13 @@
 		952F568720B9C88C00CB65C1 /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 952F568220B9C88C00CB65C1 /* Level_4.json */; };
 		952F568820B9C88C00CB65C1 /* Level_0.json in Resources */ = {isa = PBXBuildFile; fileRef = 952F568320B9C88C00CB65C1 /* Level_0.json */; };
 		952F568920B9C88C00CB65C1 /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 952F568420B9C88C00CB65C1 /* Level_1.json */; };
+		952F568B20BA032200CB65C1 /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952F568A20BA032100CB65C1 /* Swap.swift */; };
+		952F569320BA210900CB65C1 /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = 952F568D20BA210900CB65C1 /* Scrape.wav */; };
+		952F569420BA210900CB65C1 /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = 952F568E20BA210900CB65C1 /* Ka-Ching.wav */; };
+		952F569520BA210900CB65C1 /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 952F568F20BA210900CB65C1 /* Mining by Moonlight.mp3 */; };
+		952F569620BA210900CB65C1 /* Drip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 952F569020BA210900CB65C1 /* Drip.wav */; };
+		952F569720BA210900CB65C1 /* Chomp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 952F569120BA210900CB65C1 /* Chomp.wav */; };
+		952F569820BA210900CB65C1 /* Error.wav in Resources */ = {isa = PBXBuildFile; fileRef = 952F569220BA210900CB65C1 /* Error.wav */; };
 		95DA5DC620B9A21C007D17A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA5DC520B9A21C007D17A4 /* AppDelegate.swift */; };
 		95DA5DCC20B9A21C007D17A4 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA5DCB20B9A21C007D17A4 /* GameScene.swift */; };
 		95DA5DCE20B9A21C007D17A4 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DA5DCD20B9A21C007D17A4 /* GameViewController.swift */; };
@@ -32,6 +39,13 @@
 		952F568220B9C88C00CB65C1 /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
 		952F568320B9C88C00CB65C1 /* Level_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_0.json; sourceTree = "<group>"; };
 		952F568420B9C88C00CB65C1 /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_1.json; sourceTree = "<group>"; };
+		952F568A20BA032100CB65C1 /* Swap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
+		952F568D20BA210900CB65C1 /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Scrape.wav; sourceTree = "<group>"; };
+		952F568E20BA210900CB65C1 /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ka-Ching.wav"; sourceTree = "<group>"; };
+		952F568F20BA210900CB65C1 /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Mining by Moonlight.mp3"; sourceTree = "<group>"; };
+		952F569020BA210900CB65C1 /* Drip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Drip.wav; sourceTree = "<group>"; };
+		952F569120BA210900CB65C1 /* Chomp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Chomp.wav; sourceTree = "<group>"; };
+		952F569220BA210900CB65C1 /* Error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Error.wav; sourceTree = "<group>"; };
 		95DA5DC220B9A21C007D17A4 /* CookieCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DA5DC520B9A21C007D17A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DA5DCB20B9A21C007D17A4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -72,6 +86,20 @@
 			path = Resources/Levels;
 			sourceTree = SOURCE_ROOT;
 		};
+		952F568C20BA210900CB65C1 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				952F568D20BA210900CB65C1 /* Scrape.wav */,
+				952F568E20BA210900CB65C1 /* Ka-Ching.wav */,
+				952F568F20BA210900CB65C1 /* Mining by Moonlight.mp3 */,
+				952F569020BA210900CB65C1 /* Drip.wav */,
+				952F569120BA210900CB65C1 /* Chomp.wav */,
+				952F569220BA210900CB65C1 /* Error.wav */,
+			);
+			name = Sounds;
+			path = Resources/Sounds;
+			sourceTree = SOURCE_ROOT;
+		};
 		95DA5DB920B9A21C007D17A4 = {
 			isa = PBXGroup;
 			children = (
@@ -93,8 +121,10 @@
 			children = (
 				95DA5DFD20B9C259007D17A4 /* Sprites.atlas */,
 				952F567F20B9C88C00CB65C1 /* Levels */,
+				952F568C20BA210900CB65C1 /* Sounds */,
 				95DA5DC520B9A21C007D17A4 /* AppDelegate.swift */,
 				95DA5DCB20B9A21C007D17A4 /* GameScene.swift */,
+				952F568A20BA032100CB65C1 /* Swap.swift */,
 				95DA5DDF20B9A4AD007D17A4 /* Cookie.swift */,
 				95DA5DF320B9B2DF007D17A4 /* Tile.swift */,
 				95DA5DF520B9B3AF007D17A4 /* Extensions.swift */,
@@ -167,15 +197,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952F569320BA210900CB65C1 /* Scrape.wav in Resources */,
+				952F569620BA210900CB65C1 /* Drip.wav in Resources */,
 				95DA5DD120B9A21C007D17A4 /* Main.storyboard in Resources */,
 				952F568920B9C88C00CB65C1 /* Level_1.json in Resources */,
 				952F568520B9C88C00CB65C1 /* Level_2.json in Resources */,
 				95DA5DD320B9A21D007D17A4 /* Assets.xcassets in Resources */,
+				952F569720BA210900CB65C1 /* Chomp.wav in Resources */,
 				952F568820B9C88C00CB65C1 /* Level_0.json in Resources */,
 				952F568720B9C88C00CB65C1 /* Level_4.json in Resources */,
+				952F569820BA210900CB65C1 /* Error.wav in Resources */,
+				952F569520BA210900CB65C1 /* Mining by Moonlight.mp3 in Resources */,
 				95DA5DD620B9A21D007D17A4 /* LaunchScreen.storyboard in Resources */,
 				952F568620B9C88C00CB65C1 /* Level_3.json in Resources */,
 				95DA5DFE20B9C3B8007D17A4 /* Sprites.atlas in Resources */,
+				952F569420BA210900CB65C1 /* Ka-Ching.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +230,7 @@
 				95DA5DCE20B9A21C007D17A4 /* GameViewController.swift in Sources */,
 				95DA5DC620B9A21C007D17A4 /* AppDelegate.swift in Sources */,
 				95DA5DE220B9A6D3007D17A4 /* Array2D.swift in Sources */,
+				952F568B20BA032200CB65C1 /* Swap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

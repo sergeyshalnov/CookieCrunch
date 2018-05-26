@@ -50,7 +50,7 @@ class Cookie: CustomStringConvertible, Hashable {
     }
     
     var description: String {
-        return "type:\(cookieType) square:(\(column),\(row))"
+        return "type: \(cookieType) square: (\(column), \(row))"
     }
     
     var hashValue: Int {
