@@ -13,15 +13,22 @@ let NumRows = 9
 let NumLevels = 4
 
 class Level {
+    
+    // MARK : Properties
+    
     fileprivate var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
     
     fileprivate var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
     
-    private var possibleSwaps = Set<Swap>()
+    fileprivate var possibleSwaps = Set<Swap>()
+    
     private var comboMultiplier = 1
     
     var targetScore = 0
     var maximumMoves = 0
+    
+    
+    // MARK: Initialization
     
     init(filename: String) {
         guard let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename: filename) else {return}
@@ -41,15 +48,20 @@ class Level {
         maximumMoves = dictionary["moves"] as! Int
     }
     
+    
     // MARK: Level Setup
     
     func shuffle() -> Set<Cookie> {
         var set: Set<Cookie>
+        
         repeat {
             set = createInitialCookies()
+            
             detectPossibleSwaps()
+            
             print("possible swaps: \(possibleSwaps)")
         } while possibleSwaps.count == 0
+        
         return set
     }
     
@@ -62,8 +74,11 @@ class Level {
                     var cookieType: CookieType
                     repeat {
                         cookieType = CookieType.random()
-                    } while (column >= 2 && cookies[column - 1, row]?.cookieType == cookieType &&
-                        cookies[column - 2, row]?.cookieType == cookieType) || (row >= 2 &&
+                    } while
+                        (column >= 2 &&
+                            cookies[column - 1, row]?.cookieType == cookieType &&
+                            cookies[column - 2, row]?.cookieType == cookieType) ||
+                        (row >= 2 &&
                             cookies[column, row - 1]?.cookieType == cookieType &&
                             cookies[column, row - 2]?.cookieType == cookieType)
                     
@@ -93,22 +108,11 @@ class Level {
         return cookies[column, row]
     }
     
-    func perfomeSwap(_ swap: Swap) {
-        let columnA = swap.cookieA.column
-        let rowA = swap.cookieA.row
-        let columnB = swap.cookieB.column
-        let rowB = swap.cookieB.row
-        
-        cookies[columnA, rowA] = swap.cookieB
-        swap.cookieB.column = columnA
-        swap.cookieB.row = rowA
-        
-        cookies[columnB, rowB] = swap.cookieA
-        swap.cookieA.column = columnB
-        swap.cookieA.row = rowB
+    func isPossibleSwap(_ swap: Swap) -> Bool {
+        return possibleSwaps.contains(swap)
     }
-    
-    // FIX: Optimize code
+
+    // TODO: Optimize code
     private func hasChainAt(column: Int, row: Int) -> Bool {
         let cookieType = cookies[column, row]!.cookieType
         
@@ -151,11 +155,23 @@ class Level {
         return vertLength >= 3
     }
     
-    func isPossibleSwap(_ swap: Swap) -> Bool {
-        return possibleSwaps.contains(swap)
-    }
 
     // MARK: Swapping
+    
+    func perfomeSwap(_ swap: Swap) {
+        let columnA = swap.cookieA.column
+        let rowA = swap.cookieA.row
+        let columnB = swap.cookieB.column
+        let rowB = swap.cookieB.row
+        
+        cookies[columnA, rowA] = swap.cookieB
+        swap.cookieB.column = columnA
+        swap.cookieB.row = rowA
+        
+        cookies[columnB, rowB] = swap.cookieA
+        swap.cookieA.column = columnB
+        swap.cookieA.row = rowB
+    }
     
     func detectPossibleSwaps() {
         var set = Set<Swap>()
@@ -168,7 +184,8 @@ class Level {
                             cookies[column, row] = other
                             cookies[column + 1, row] = cookie
                             
-                            if hasChainAt(column: column + 1, row: row) || hasChainAt(column: column, row: row) {
+                            if hasChainAt(column: column + 1, row: row) ||
+                                hasChainAt(column: column, row: row) {
                                 set.insert(Swap(cookieA: cookie, cookieB: other))
                             }
                             
@@ -182,7 +199,8 @@ class Level {
                             cookies[column, row] = other
                             cookies[column, row + 1] = cookie
                             
-                            if hasChainAt(column: column, row: row + 1) || hasChainAt(column: column, row: row) {
+                            if hasChainAt(column: column, row: row + 1) ||
+                                hasChainAt(column: column, row: row) {
                                 set.insert(Swap(cookieA: cookie, cookieB: other))
                             }
                             
@@ -197,8 +215,6 @@ class Level {
         possibleSwaps = set
     }
     
-    // Chain
-    // nil
     private func detectHorizontalMatches() -> Set<Chain> {
         var set = Set<Chain>()
         
@@ -208,12 +224,16 @@ class Level {
                 if let cookie = cookies[column, row] {
                     let matchType = cookie.cookieType
                     
-                    if cookies[column + 1, row]?.cookieType == matchType && cookies[column + 2, row]?.cookieType == matchType {
+                    if cookies[column + 1, row]?.cookieType == matchType &&
+                        cookies[column + 2, row]?.cookieType == matchType {
+                        
                         let chain = Chain(chain: .horizontal)
+                        
                         repeat {
                             chain.add(cookie: cookies[column, row]!)
                             column += 1
-                        } while column < NumColumns && cookies[column, row]?.cookieType == matchType
+                        } while column < NumColumns &&
+                            cookies[column, row]?.cookieType == matchType
                         
                         set.insert(chain)
                         continue
@@ -290,11 +310,13 @@ class Level {
                             cookie.row = row
                             
                             array.append(cookie)
+                            
                             break
                         }
                     }
                 }
             }
+            
             if !array.isEmpty {
                 columns.append(array)
             }
@@ -320,6 +342,7 @@ class Level {
                     cookieType = newCookieType
                     
                     let cookie = Cookie(column: column, row: row, cookieType: cookieType)
+                    
                     cookies[column, row] = cookie
                     array.append(cookie)
                 }

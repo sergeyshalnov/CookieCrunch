@@ -23,7 +23,6 @@ class GameViewController: UIViewController {
     
     var movesLeft = 0
     var score = 0
-    
     var currentLevelNum = 1
     
     @IBOutlet weak var targetLabel: UILabel!
@@ -50,7 +49,7 @@ class GameViewController: UIViewController {
         decrementMoves()
     }
     
-    // MARK: Init
+    // MARK: View Controller Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +79,7 @@ class GameViewController: UIViewController {
         
         beginGame()
     }
+    
     
     // MARK: Game functions
     
@@ -121,8 +121,7 @@ class GameViewController: UIViewController {
         setupLevel(levelNum: currentLevelNum)
     }
     
-    // FIX: Optimze
-    //      self.view.isUserInteractionEnabled = true
+    // TODO: Optimze code!
     func handleSwipe(_ swap: Swap) {
         view.isUserInteractionEnabled = false
         
@@ -137,15 +136,14 @@ class GameViewController: UIViewController {
     }
     
     func handleMatches() {
-        print("enter handleMatches")
         let chains = level.removeMatches()
+        
         if chains.count == 0 {
             beginNextTurn()
             return
         }
         
         scene.animateMatchedCookie(for: chains) {
-            print("enter animateHandleCookies")
             for chain in chains {
                 self.score += chain.score
             }
@@ -154,19 +152,16 @@ class GameViewController: UIViewController {
             let columns = self.level.fillHoles()
             
             self.scene.animateFallingCookies(columns: columns, completion: {
-                print("enter animateFallingCookies")
                 let columns = self.level.topUpCookies()
+                
                 self.scene.animateNewCookies(columns, completion: {
-                    print("enter animateNewCookies")
                     self.handleMatches()
-                    //self.view.isUserInteractionEnabled = true
                 })
             })
         }
     }
     
     func beginNextTurn() {
-        print("enter beginNewTurn")
         level.resetComboMultiplier()
         level.detectPossibleSwaps()
         view.isUserInteractionEnabled = true

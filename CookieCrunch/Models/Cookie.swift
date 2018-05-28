@@ -37,6 +37,9 @@ enum CookieType: Int, CustomStringConvertible {
     }
 }
 
+
+// MARK: Cookie
+
 class Cookie: CustomStringConvertible, Hashable {
     var column: Int
     var row: Int

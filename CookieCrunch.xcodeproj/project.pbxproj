@@ -50,7 +50,7 @@
 		952F569220BA210900CB65C1 /* Error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Error.wav; sourceTree = "<group>"; };
 		9558973A20BAA58700149539 /* Сhain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Сhain.swift"; sourceTree = "<group>"; };
 		9558973C20BAB8B100149539 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		9558973E20BAFB5900149539 /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Grid.atlas; path = Resources/Grid.atlas; sourceTree = SOURCE_ROOT; };
+		9558973E20BAFB5900149539 /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Grid.atlas; path = CookieCrunch/Resources/Grid.atlas; sourceTree = SOURCE_ROOT; };
 		95DA5DC220B9A21C007D17A4 /* CookieCrunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieCrunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DA5DC520B9A21C007D17A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DA5DCB20B9A21C007D17A4 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 				952F568420B9C88C00CB65C1 /* Level_1.json */,
 			);
 			name = Levels;
-			path = Resources/Levels;
+			path = CookieCrunch/Resources/Levels;
 			sourceTree = SOURCE_ROOT;
 		};
 		952F568C20BA210900CB65C1 /* Sounds */ = {
@@ -101,8 +101,60 @@
 				952F569220BA210900CB65C1 /* Error.wav */,
 			);
 			name = Sounds;
-			path = Resources/Sounds;
+			path = CookieCrunch/Resources/Sounds;
 			sourceTree = SOURCE_ROOT;
+		};
+		95999FFA20BC341E0048153D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				95DA5DCD20B9A21C007D17A4 /* GameViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		95999FFB20BC34300048153D /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				95DA5DC520B9A21C007D17A4 /* AppDelegate.swift */,
+				95DA5DD420B9A21D007D17A4 /* LaunchScreen.storyboard */,
+				9558973C20BAB8B100149539 /* Main.storyboard */,
+				95DA5DD720B9A21D007D17A4 /* Info.plist */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		95999FFC20BC34380048153D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				95DA5DD220B9A21D007D17A4 /* Assets.xcassets */,
+				95DA5DFD20B9C259007D17A4 /* Sprites.atlas */,
+				9558973E20BAFB5900149539 /* Grid.atlas */,
+				952F567F20B9C88C00CB65C1 /* Levels */,
+				952F568C20BA210900CB65C1 /* Sounds */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		95999FFD20BC34450048153D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95DA5DE120B9A6D3007D17A4 /* Array2D.swift */,
+				9558973A20BAA58700149539 /* Сhain.swift */,
+				95DA5DDF20B9A4AD007D17A4 /* Cookie.swift */,
+				95DA5DE320B9A962007D17A4 /* Level.swift */,
+				952F568A20BA032100CB65C1 /* Swap.swift */,
+				95DA5DF320B9B2DF007D17A4 /* Tile.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		95999FFE20BC344C0048153D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95DA5DCB20B9A21C007D17A4 /* GameScene.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
 		};
 		95DA5DB920B9A21C007D17A4 = {
 			isa = PBXGroup;
@@ -123,24 +175,12 @@
 		95DA5DC420B9A21C007D17A4 /* CookieCrunch */ = {
 			isa = PBXGroup;
 			children = (
-				95DA5DFD20B9C259007D17A4 /* Sprites.atlas */,
-				9558973E20BAFB5900149539 /* Grid.atlas */,
-				952F567F20B9C88C00CB65C1 /* Levels */,
-				952F568C20BA210900CB65C1 /* Sounds */,
-				95DA5DC520B9A21C007D17A4 /* AppDelegate.swift */,
-				95DA5DCB20B9A21C007D17A4 /* GameScene.swift */,
-				95DA5DCD20B9A21C007D17A4 /* GameViewController.swift */,
-				9558973A20BAA58700149539 /* Сhain.swift */,
-				952F568A20BA032100CB65C1 /* Swap.swift */,
-				95DA5DDF20B9A4AD007D17A4 /* Cookie.swift */,
-				95DA5DF320B9B2DF007D17A4 /* Tile.swift */,
+				95999FFA20BC341E0048153D /* Controllers */,
+				95999FFE20BC344C0048153D /* Views */,
+				95999FFD20BC34450048153D /* Models */,
+				95999FFC20BC34380048153D /* Resources */,
+				95999FFB20BC34300048153D /* Misc */,
 				95DA5DF520B9B3AF007D17A4 /* Extensions.swift */,
-				95DA5DE320B9A962007D17A4 /* Level.swift */,
-				95DA5DE120B9A6D3007D17A4 /* Array2D.swift */,
-				9558973C20BAB8B100149539 /* Main.storyboard */,
-				95DA5DD220B9A21D007D17A4 /* Assets.xcassets */,
-				95DA5DD420B9A21D007D17A4 /* LaunchScreen.storyboard */,
-				95DA5DD720B9A21D007D17A4 /* Info.plist */,
 			);
 			path = CookieCrunch;
 			sourceTree = "<group>";
@@ -376,7 +416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8UNQZ8NSJN;
-				INFOPLIST_FILE = CookieCrunch/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CookieCrunch/Misc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,7 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8UNQZ8NSJN;
-				INFOPLIST_FILE = CookieCrunch/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CookieCrunch/Misc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
